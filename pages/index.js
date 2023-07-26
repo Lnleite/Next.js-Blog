@@ -5,7 +5,6 @@ import { getSortedPostsData } from "../lib/posts";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  console.log(allPostsData);
   return {
     props: {
       allPostsData,
@@ -21,8 +20,8 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Helli, I'm Lauren. I'm a FrontEnd and FullStack Software Engineer.
-          Want to know more here is my <a href>LinkedIn</a>!
+          Hello, I'm Lauren. I'm a FrontEnd and FullStack Software Engineer.
+          Want to know more here is my <a href="">LinkedIn</a>!
         </p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}
