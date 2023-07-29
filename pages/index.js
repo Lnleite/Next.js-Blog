@@ -5,15 +5,6 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
-
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
@@ -23,7 +14,8 @@ export default function Home({ allPostsData }) {
       <section className={utilStyles.headingMd}>
         <p>
           Hello, I'm Lauren. I'm a FrontEnd and FullStack Software Engineer.
-          Want to know more here is my <a href="">LinkedIn</a>!
+          Want to know more here is my{" "}
+          <a href="https://www.linkedin.com/in/laurenleite">LinkedIn</a>!
         </p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}
@@ -46,4 +38,13 @@ export default function Home({ allPostsData }) {
       </section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
 }
