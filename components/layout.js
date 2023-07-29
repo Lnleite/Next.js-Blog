@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
+
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
@@ -11,7 +13,7 @@ export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <Link rel="icon" href="favicon.ico" />
+        <link rel="icon" href="favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -25,6 +27,13 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <Script
+        src="https://connect.facebook.net/en_US/sdk.js"
+        strategy="lazyOnload"
+        onLoad={() =>
+          console.log(`script loaded correctly, window.FB has been populated`)
+        }
+      />
       <header className={styles.header}>
         {home ? (
           <>
@@ -34,7 +43,7 @@ export default function Layout({ children, home }) {
               className={utilStyles.borderCircle}
               height={256}
               width={256}
-              alt=""
+              alt={name}
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
@@ -47,7 +56,7 @@ export default function Layout({ children, home }) {
                 className={utilStyles.borderCircle}
                 height={108}
                 width={108}
-                alt=""
+                alt={name}
               />
             </Link>
             <h2 className={utilStyles.headingLg}>
